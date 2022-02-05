@@ -1,0 +1,10 @@
+$color: #9c181a;
+$colorGradient: #bc72ff;
+$colorH: rgba($color, 0.9);
+.red{color: #ff3030;}
+.gradient{ background: linear-gradient(310deg, $color, $colorGradient) !important; }
+button.gradient:hover,
+a.gradient:hover{
+    background: rgba($color, 0.9) !important;
+}
+.color{color: $color;}

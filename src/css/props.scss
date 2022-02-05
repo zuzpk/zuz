@@ -1,0 +1,122 @@
+*, *:before, *:after{
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*, html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, label, fieldset, input, p, blockquote, th, td{margin: 0;padding: 0;}
+table{border-collapse: collapse; border-spacing: 0;}
+fieldset, img {border: 0}
+address, caption, cite, code, dfn, em, strong, th, var {font-style: normal; font-weight: normal}
+ol, ul, li{list-style: none;}
+caption, th{text-align: left;}
+h1, h2, h3, h4, h5, h6{font-size: 100%; font-weight: normal;}
+div, img, button, input, textarea, select{outline: none}
+strong{font-weight: bold}
+em{font-style: italic;}
+a img{border: none;}
+.tc{text-align: center;}
+.fixed{
+  position: fixed;
+  &.fill{
+      top: 0px;
+      left: 0px;
+      right: 0px;
+      bottom: 0px;
+  }
+}
+.abs{
+  position: absolute;
+  &.fill{
+      top: 0px;
+      left: 0px;
+      right: 0px;
+      bottom: 0px;
+  }
+  &.abc{
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+  }
+}
+.abcb:before{
+  position: absolute;
+  top: 50%;left: 50%;transform: translate(-50%, -50%);
+}
+.rel{
+  position: relative;
+}
+button{
+  outline: none;
+  cursor: pointer;
+}
+.tbl{display: table;}
+.flex{
+  display: flex;
+  &.iflex{display: inline-flex;}
+  &.ass{
+    align-self: flex-start;
+  }
+  &.aic{
+    align-items: center;
+  }
+  &.col{
+    flex-direction: column;
+  }
+  &.je{
+    justify-content: flex-end;
+  }
+  &.jc{
+    justify-content: center;
+  }
+}
+.hide{display: none;}
+.pointer{cursor: pointer;}
+.grab{cursor: grab;}
+.grabbing{cursor: grabbing;}
+.nope{pointer-events: none;}
+.nous{user-select: none;}
+.noul{text-decoration: none;}
+.noulh:hover{text-decoration: underline;}
+.b{font-weight: bold;}
+.wordwrap{
+  word-wrap: break-word;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 99%;
+}
+.fit{
+  object-fit: content;
+}
+.blur{
+  filter: blur(5px);
+}
+.sticky{position: sticky}
+.cfff{color: #fff;}
+.c777{color: #777;}
+.c999{color: #999;}
+
+.s10{font-size: 10px;}
+.s11{font-size: 11px;}
+.s12{font-size: 12px;}
+.s13{font-size: 13px;}
+.s14{font-size: 14px;}
+.s15{font-size: 15px;}
+.s16{font-size: 16px;}
+.s18{font-size: 18px;}
+.s20{font-size: 20px;}
+.s24{font-size: 24px;}
+.s30{font-size: 30px;}
+.s36{font-size: 36px;}
+.s40{font-size: 40px;}
+.s50{font-size: 50px;}
+.s70{font-size: 70px;}
+.s100{font-size: 100px;}
+
+.holder{
+    opacity: 0.65;
+    animation: placeholder 2s linear infinite;
+}
+@keyframes placeholder{
+  50%{ opacity: 1; }
+}

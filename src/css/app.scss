@@ -1,0 +1,84 @@
+@import "./mixin.scss";
+@import "./theme.scss";
+@import "./props.scss";
+@import "./global.scss";
+/*@import "./fonts.scss";*/
+
+.path1:before{color: $color !important;}
+.path2:before{color: $color !important;}
+@font-face {
+    font-family: 'Google Sans';
+    src:  url('fonts/Roboto.ttf?6m7xpz') format('truetype'),
+      url('fonts/Roboto.woff2?6m7xpz') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+body, .font{font-family: 'Google Sans', 'Roboto', 'Open Sans', sans-serif, arial;}
+body{
+    -webkit-font-smoothing: antialiased;
+    color: #111;
+    background: #fff;
+    overflow: hidden;
+    a{
+        color: #111;
+    }
+    &.nof{
+        overflow: hidden;
+    }
+}
+.button{
+    border: 0px;
+    background: $color;
+    padding: 6px 12px;
+    border-radius: 6px;
+    &:hover{
+        background: $colorH;
+    }
+    &.link{
+        padding: 0px;
+        background: rgba(0,0,0,0);
+    }
+    &:disabled{
+        background: rgba($color, 0.2);
+    }
+}
+.splash .logo{
+    padding: 15px;
+    .fav{
+        width: 30px;
+        height: 30px;
+        border-radius: 10px 10px 3px 10px;
+        margin-right: 6px;
+        &:before{
+            content: "";
+            position: absolute;
+            bottom: 0px;
+            right: 6px;
+            font-size: 15px;
+        }
+        img{
+            height: 30px;
+        }
+    }
+    
+}
+
+
+/** App **/
+.landing{
+    .logo{
+        margin-bottom: 30px;
+        img{
+            height: 60px;
+            margin-right: 10px;
+        }
+    }
+    .btns{
+        margin-top: 30px;
+        .button{
+            margin-right: 5px;
+        }   
+    }
+}

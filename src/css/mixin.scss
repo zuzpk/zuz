@@ -1,0 +1,9 @@
+@keyframes breath{
+    50%{ opacity: 0.7; }
+}
+@mixin anim($duration: 0.3s) {
+    transition: all $duration linear 0s;
+}
+@mixin breath($duration: 1s) {
+    animation: breath $duration ease infinite;
+}
