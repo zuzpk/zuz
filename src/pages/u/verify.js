@@ -76,7 +76,7 @@ function Verify(props) {
 
             {!loading && verified && <div className={`task-done flex col`}>
                 <div className={`checked rel`}>
-                    <div className={`icon-check abs abc s50`} style={{ fontSize: 90 }}>
+                    <div className={`icon-check abs abc cfff`} style={{ fontSize: 70 }}>
                         <span className={`path1`} /><span className={`path2`} />
                     </div>
                 </div>
