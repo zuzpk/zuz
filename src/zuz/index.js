@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { nanoid } from "nanoid";
 import { render } from "react-dom";
+import { useDispatch } from "react-redux";
 import { 
 	ENCRYPTION_KEY, 
 	COOKIE_AT,
@@ -259,8 +260,21 @@ const Circle = ({
 
 const getUriParams = () => {
 	var search = window.location.search.substring(1);
-	if(search=='') return JSON.parse('{}');
-	return JSON.parse('{"' + search.replace(/&/g, '","').replace(/=/g,'":"') + '"}', function(key, value) { return key===""?value:decodeURIComponent(value) });
+	if(search=='') return JSON.parse('{}');	
+	var xny = {};
+	if("URLSearchParams" in window){
+		var items = new URLSearchParams(search);
+		for(const [k, v] of items){
+			xny[k] = v || ``;
+		}
+	}else{	
+		try{
+			xny = JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}');
+		}catch(e){
+			xny = {};
+		}
+	}
+	return xny;
 }
 
 const ucfirst = (string) => {
@@ -278,6 +292,15 @@ const moment = stamp => {
 	}else{
 		return dt.month + "/" + dt.day + (dt.year == now.year ? "" : "/" + dt.year) + " " + time;
 	}	 
+}
+
+const Logout = async () => {
+	return new Promise((resolve, reject) => {
+		removeCookie(COOKIE_HA); //Hash
+		removeCookie(COOKIE_UT); //UT
+		removeCookie(COOKIE_AT); //AT
+		resolve()
+	})
 }
 
 export {
@@ -305,5 +328,6 @@ export {
 	formatSize,
 	formatTime,
 	slugit,
-	Dialog
+	Dialog,
+	Logout
 }

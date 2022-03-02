@@ -46,6 +46,11 @@ function Form({
                         type={item.type} 
                         placeholder={item.placeholder}
                         className={`zf-item font input input-${item.name} s${fontSize || "16"}`}
+                        autoComplete={"autoFill" in item ? item.autoFill == true ? `auto` : `new-password` : `auto` }
+                        onKeyUp={e => {
+                            var c = e.keyCode || e.which;
+                            if(c == 13){ onSubmit && onSubmit() }
+                        }}
                     />
                 )
                 break;

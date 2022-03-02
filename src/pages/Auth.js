@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Signin from "./u/signin";
 import Signup from "./u/signup";
 import Verify from "./u/verify";
+import Recover from "./u/recover";
 
 function Auth(props) {
 
@@ -13,6 +14,7 @@ function Auth(props) {
             {section == `signin` && <Signin />}
             {section == `signup` && <Signup />}
             {section == `verify` && <Verify />}
+            {section == `recover` && <Recover />}
         </div>
     );
 }

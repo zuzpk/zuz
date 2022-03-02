@@ -1,5 +1,5 @@
 import React from 'react';
-import Logo from '../ui/logo'
+import Logo from '../assets/logo'
 
 function Splash(props) {
     return (

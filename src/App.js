@@ -20,11 +20,9 @@ import {
 import { base } from "./config";
 
 //Core
-import Error404 from "./pages/Error404";
 import Catch from "./Catch";
 import Splash from "./pages/Splash";
-import Landing from "./pages/Landing";
-import Auth from "./pages/Auth";
+import AppRoutes from "./AppRoutes"
 
 import "./css/app.scss";
 
@@ -57,7 +55,7 @@ function App(props) {
           setState({ 
               loaded: true, 
               session: true, 
-              user: resp.me, 
+              user: resp.u.me, 
               ...defaults
           });        
       }else{
@@ -91,32 +89,7 @@ function App(props) {
       onReset={() => window.location.href = base}>
       <BrowserRouter>
         {loaded ? <div className={`app-main flex `}>
-          <Routes>
-            {/* Landing */}
-            <Route 
-              path="/" 
-              element={<Landing />}
-            />
-
-            {/* Account */}
-            <Route path={`/u`}>
-              <Route 
-                path={`:section`} 
-                element={<Auth />}
-              >
-                <Route 
-                  path={`:accesstoken`} 
-                  element={<Auth />}
-                />
-              </Route>
-            </Route>
-
-            {/**404 */}   
-            <Route 
-                path="*" 
-                element={<Error404 />}
-            />
-          </Routes>
+            <AppRoutes />
         </div> : <Splash />}
       </BrowserRouter>
     </ErrorBoundary>

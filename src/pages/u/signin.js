@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import Logo from "../../ui/logo";
+import Logo from "../../assets/logo";
 import {
     Cover,
     Form,
@@ -46,11 +46,9 @@ function Signin(props) {
         }else if(!isValidPassword(password)){
             Toast.show({ html: "Only use letters, numbers and common punctuation characters.", time: 5 });
             focus(".input-password");
-        }
-        // else if(window.grecaptcha && window.grecaptcha.getResponse().length == 0){
-        //     Toast.show({ html: "You must verify you are not robot!", time: 5 }); 
-        // }
-        else{
+        }else if(window.grecaptcha && window.grecaptcha.getResponse().length == 0){
+            Toast.show({ html: "You must verify you are not robot!", time: 5 }); 
+        }else{
             setState({ loading: true });
             debug && console.log(`Signing in...`);
             grab(
@@ -66,7 +64,7 @@ function Signin(props) {
                 setCookie("__at", resp.at || `__`); //Hash
                 setCookie("__ud", resp.accesstoken); //UDATA
                 setState({ session: true, user: resp.me })
-                .then(() => window.location = `${base}drive`)
+                .then(() => window.location = `${base}`)
                 .catch(err => {
                     debug && console.log(err);
                     window.grecaptcha && window.grecaptcha.reset();
@@ -76,13 +74,14 @@ function Signin(props) {
             .catch(err => {
                 debug && console.log(err);
                 window.grecaptcha && window.grecaptcha.reset();
-                Toast.show({ html: err.reason || `Request no processed.`, time: 5 }); 
+                Toast.show({ html: err.message || err.reason || `Request no processed.`, time: 5 }); 
                 setState({ loading: false });
             });
         }
     }
 
     useEffect(() => {
+        if(session) navigate(`/`);
         window.document.title = `Sign in`;
     }, [])
 

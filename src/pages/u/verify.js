@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import Logo from "../../ui/logo";
+import Logo from "../../assets/logo";
 import {
     Loader,
     Toast
@@ -76,9 +76,8 @@ function Verify(props) {
 
             {!loading && verified && <div className={`task-done flex col`}>
                 <div className={`checked rel`}>
-                    <div className={`icon-circle-check abs abc s50`} style={{ fontSize: 90 }}>
-                        <span className={`path1`} />
-                        <span className={`path2`} />
+                    <div className={`icon-check abs abc s50`} style={{ fontSize: 90 }}>
+                        <span className={`path1`} /><span className={`path2`} />
                     </div>
                 </div>
                 <h2 className="s18 font msg">{verifyMsg}</h2>
@@ -86,10 +85,9 @@ function Verify(props) {
             </div>}
 
             {!loading && !verified && <div className={`task-done flex col`}>
-                <div className={`checked rel`} style={{ backgroundColor: `#ffdbdb` }}>
-                    <div className={`icon-triangle-exclamation abs abc s50`}>
-                        <span className={`path1`} />
-                        <span className={`path2`} />
+                <div className={`checked rel`} style={{ backgroundColor: `rgb(156, 25, 26)` }}>
+                    <div className={`icon-error abs abc s50 cfff`}>
+                        <span className={`path1`} /><span className={`path2`} />
                     </div>
                 </div>
                 <h2 className="s18 font msg">{verifyMsg}</h2>
